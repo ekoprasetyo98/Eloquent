@@ -16,4 +16,31 @@ class PegawaiController extends Controller
 
     }
 
+    public function input(Request $request)
+    {
+        // untuk insert data ke database menggunakan function create()
+        Pegawai::create([
+            'nama'=>$request->nama,
+            'alamat'=>$request->alamat
+        ]);
+
+        return redirect('/pegawai');
+    }
+
+    public function edit($id){
+        $data = Pegawai::find($id);
+        return view('edit-form',['dataPegawaiById'=>$data]);
+    }
+
+    public function update($id, Request $request){
+        $pegawai = Pegawai::find($id);
+        $pegawai->nama = $request->nama;
+        $pegawai->alamat = $request->alamat;
+        $pegawai->save();
+        return redirect('/pegawai');
+        
+    }
+
+
+
 }
