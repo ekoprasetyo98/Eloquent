@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/pegawai','PegawaiController@index');
-Route::get('/dummy','DummyController@index');
 Route::post('/pegawai/input','PegawaiController@input');
 Route::get('/pegawai/edit/{id}','PegawaiController@edit');
-Route::post('/pegawai/update/{id}','PegawaiController@update');
+Route::put('/pegawai/update/{id}','PegawaiController@update');
+Route::get('/pegawai/delete/{id}','PegawaiController@delete');

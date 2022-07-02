@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pegawai;
+use Illuminate\Support\Facades\DB;
 
 class PegawaiController extends Controller
 {
@@ -28,7 +29,10 @@ class PegawaiController extends Controller
     }
 
     public function edit($id){
+        // $data = DB::table('pegawai')->where('id',$id)->get();
         $data = Pegawai::find($id);
+        // dd($data);
+        
         return view('edit-form',['dataPegawaiById'=>$data]);
     }
 
@@ -38,6 +42,14 @@ class PegawaiController extends Controller
         $pegawai->alamat = $request->alamat;
         $pegawai->save();
         return redirect('/pegawai');
+        
+    }
+
+    public function delete($id){
+        // dd($id);
+        Pegawai::find($id)->delete();
+        return redirect('/pegawai');
+        
         
     }
 

@@ -25,7 +25,11 @@
                         <td>
                             <a class="btn btn-secondary" href="/pegawai/detail/{{$d->id}}"><i class="bi bi-eye-fill"></i></a>
                             <a class="btn btn-warning" href="/pegawai/edit/{{$d->id}}"><i class="bi bi-pencil-fill"></i></a>
-                            <a class="btn btn-danger" href="/pegawai/delete/{{$d->id}}"><i class="bi bi-trash-fill"></i></a>
+                            {{-- <a class="btn btn-danger" href="/pegawai/delete/{{$d->id}}" onclick={{hapus()}}><i class="bi bi-trash-fill"></i></a> --}}
+                            <a class="btn btn-danger" onclick="hapus({{$d->id}})"><i class="bi bi-trash-fill"></i></a>
+                            <script type="text/javascript">
+                                
+                            </script>
 
                         </td>
                     </tr>
@@ -46,16 +50,16 @@
             {{csrf_field()}}
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Nama</label>
-              <input type="text" name="nama" class="form-control" placeholder="Masukan nama" required="">
+              <input type="text" name="nama" class="form-control" placeholder="Masukan nama" required>
               
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Alamat</label>
-              <input type="text" name="alamat" class="form-control" placeholder="Masukan alamat" required="">
+              <input type="text" name="alamat" class="form-control" placeholder="Masukan alamat" required>
             </div>
             
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
-            <button type="submit" class="btn btn-primary">Simpan Data</button>
+            <button type="submit" onclick="simpan()" class="btn btn-primary">Simpan Data</button>
         </form>
     </div>
     <div class="modal-footer">
@@ -64,3 +68,4 @@
 </div>
 </div>
     @endsection
+    

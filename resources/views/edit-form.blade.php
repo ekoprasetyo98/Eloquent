@@ -6,9 +6,9 @@
     </div>
     <div class="card-body">
         {{-- @foreach($dataPegawaiById as $d) --}}
-        <form action="/pegawai/update/{{$dataPegawaiById->id}}" method="POST">
+        <form action="/pegawai/update/{{$dataPegawaiById->id}}" method="PUT">
             {{csrf_field()}}
-            {{method_field('POST')}}
+            {{method_field('PUT')}}
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Nama</label>
               <input type="text" name="nama" class="form-control" value="{{$dataPegawaiById->nama}}" required="">
